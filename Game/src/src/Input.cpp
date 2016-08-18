@@ -7,6 +7,7 @@
 
 #include <Input.h>
 
+
 void Input::nextFrame(){
 	_pressedKeys.clear();
 	_releasedKeys.clear();
@@ -26,7 +27,7 @@ void Input::onMouseMove(const SDL_Event &event){
 	_mousePos = {event.motion.x,event.motion.y};
 }
 
-std::vector Input::getMousePos(){
+std::vector<int> Input::getMousePos(){
 	return _mousePos;
 }
 int Input::getX(){

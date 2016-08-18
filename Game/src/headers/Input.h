@@ -9,6 +9,7 @@
 #define INPUT_H
 #include <map>
 #include <vector>
+#include <SDL2/SDL.h>
 class Input {
 public:
 	void nextFrame();
@@ -21,7 +22,7 @@ public:
 	bool getKeyUp(SDL_Scancode key);
 	bool getKeyHeld(SDL_Scancode key);
 
-	std::vector getMousePos();
+	std::vector<int> getMousePos();
 	int getX();
 	int getY();
 private:
