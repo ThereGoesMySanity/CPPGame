@@ -6,6 +6,7 @@
  */
 
 #include <Input.h>
+#include <iostream>
 
 
 void Input::nextFrame(){
