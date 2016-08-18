@@ -6,7 +6,7 @@
  */
 
 
-#include "graphics.h"
+#include <Graphics.h>
 #include <SDL2/SDL.h>
 
 Graphics::Graphics(){
