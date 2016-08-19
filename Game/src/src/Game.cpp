@@ -5,9 +5,9 @@
  *      Author: Will
  */
 #include <SDL2/SDL.h>
-#include <Game.h>
-#include <Graphics.h>
-#include <Input.h>
+#include "Game.h"
+#include "Graphics.h"
+#include "Input.h"
 
 Game::Game(){
 	SDL_Init(SDL_INIT_EVERYTHING);
