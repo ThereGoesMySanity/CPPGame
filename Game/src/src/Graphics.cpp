@@ -8,10 +8,10 @@
 
 #include "Graphics.h"
 #include <SDL2/SDL.h>
-#ifdef _WIN32
-#include <SDL2/SDL_image.h>
-#else
+#ifdef __MACH__
 #include <SDL2_image/SDL_image.h>
+#else
+#include <SDL2/SDL_image.h>
 #endif
 Graphics::Graphics(){
 	SDL_CreateWindowAndRenderer(800,600, 0, &this->_window, &this->_renderer);

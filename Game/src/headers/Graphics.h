@@ -1,9 +1,9 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
-#ifdef _WIN32
-#include <SDL2/SDL_image.h>
-#else
+#ifdef __MACH__
 #include <SDL2_image/SDL_image.h>
+#else
+#include <SDL2/SDL_image.h>
 #endif
 #include <string>
 #include <map>
