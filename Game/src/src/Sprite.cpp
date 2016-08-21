@@ -8,9 +8,7 @@
 #include "Sprite.h"
 #include "Graphics.h"
 
-Sprite::Sprite(){
-	_sprite = nullptr;
-	pos();
+Sprite::Sprite() : pos(0.0f,0.0f){
 	_scale = 1;
 	_currentSprite = 0;
 }

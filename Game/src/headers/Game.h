@@ -8,6 +8,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "Sprite.h"
+
 class Graphics;
 
 class Game{

@@ -5,6 +5,7 @@
 
 #include <string>
 #include <vector>
+#include <Vec2.h>
 
 class Graphics;
 class Sprite {
@@ -23,7 +24,8 @@ protected:
 	SDL_Rect _sourceRect;
 	std::vector<SDL_Texture*> _sprite;
 	Vec2 pos;
-	float _scale, _currentSprite;
+	std::size_t _currentSprite;
+	float _scale;
 private:
 };
 

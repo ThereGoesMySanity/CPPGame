@@ -20,7 +20,7 @@ void Game::run(){
 	Graphics g;
 	Input i;
 	SDL_Event event;
-	_player = Sprite(g, "")
+	_player = Sprite(g, {""}, 0,0,0,0,0,0);
 
 	int last = SDL_GetTicks();
 	while(true){

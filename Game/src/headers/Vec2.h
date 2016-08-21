@@ -12,13 +12,12 @@ class Vec2{
 public:
 	Vec2(float x, float y);
 	Vec2(Vec2 &v);
+	~Vec2();
 	float getX();
 	float getY();
-	Vec2 operator+(const Vec2 &v);
-	Vec2 operator-(const Vec2 &v);
-	Vec2 operator*(const Vec2 &v);
-	Vec2 operator/(const Vec2 &v);
-	Vec2 operator==(const Vec2 &v);
+	Vec2* operator+(const Vec2 &v);
+	Vec2* operator-(const Vec2 &v);
+	bool operator==(const Vec2 &v);
 	void operator+=(const Vec2 &v);
 private:
 	float _x, _y;
