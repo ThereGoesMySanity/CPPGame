@@ -20,11 +20,11 @@ public:
 	void blitSurface(SDL_Texture* img, SDL_Rect* src, SDL_Rect* dest);
 	void flip();
 	void clear();
+	void drawLine();
 	SDL_Renderer* getRenderer() const;
 private:
 	SDL_Window* _window;
 	SDL_Renderer* _renderer;
-
 	std::map<std::string, SDL_Surface*> _sprites;
 };
 #endif

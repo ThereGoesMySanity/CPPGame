@@ -22,8 +22,8 @@ public:
 protected:
 	SDL_Rect _sourceRect;
 	std::vector<SDL_Texture*> _sprite;
-
-	float _x, _y, _scale, _currentSprite;
+	Vec2 pos;
+	float _scale, _currentSprite;
 private:
 };
 

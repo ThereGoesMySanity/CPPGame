@@ -10,12 +10,13 @@
 
 Sprite::Sprite(){
 	_sprite = nullptr;
-	_x = _y = 0;
+	pos();
 	_scale = 1;
 	_currentSprite = 0;
 }
 
-Sprite::Sprite(Graphics &graphics, const std::vector<std::string> &file, int xSource, int ySource, int w, int h, float x, float y) : _x(x), _y(y){
+Sprite::Sprite(Graphics &graphics, const std::vector<std::string> &file, int xSource, int ySource,
+		int w, int h, float x, float y) : pos(x,y){
 	_sourceRect.x = xSource;
 	_sourceRect.y = ySource;
 	_sourceRect.w=w;

@@ -38,6 +38,7 @@ void Graphics::flip(){
 void Graphics::clear(){
 	SDL_RenderClear(_renderer);
 }
+
 SDL_Renderer* Graphics::getRenderer() const {
 	return _renderer;
 }
