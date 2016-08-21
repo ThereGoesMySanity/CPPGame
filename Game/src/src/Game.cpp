@@ -20,6 +20,8 @@ void Game::run(){
 	Graphics g;
 	Input i;
 	SDL_Event event;
+	_player = Sprite(g, "")
+
 	int last = SDL_GetTicks();
 	while(true){
 		i.nextFrame();
@@ -40,6 +42,7 @@ void Game::run(){
 				break;
 			}
 		}
+		draw(g);
 		int delta = SDL_GetTicks()-last;
 		last = SDL_GetTicks();
 		update(std::min(delta, 1000));
@@ -47,7 +50,9 @@ void Game::run(){
 }
 
 void Game::draw(Graphics &graphics){
+	graphics.clear();
 
+	graphics.flip();
 }
 
 void Game::update(float delta){
