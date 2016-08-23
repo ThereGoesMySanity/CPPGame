@@ -9,6 +9,7 @@
 #define GAME_H
 
 #include "Sprite.h"
+#include "TerminalWindow.h"
 
 class Graphics;
 
@@ -22,6 +23,7 @@ private:
 	void update(float delta);
 
 	Sprite _player;
+    TerminalWindow _window;
 };
 
 

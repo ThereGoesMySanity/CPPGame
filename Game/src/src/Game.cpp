@@ -11,6 +11,8 @@
 
 Game::Game(){
 	SDL_Init(SDL_INIT_EVERYTHING);
+    IMG_Init(IMG_INIT_PNG);
+    TTF_Init();
 	run();
 }
 Game::~Game(){
@@ -20,8 +22,8 @@ void Game::run(){
 	Graphics g;
 	Input i;
 	SDL_Event event;
-	_player = Sprite(g, {""}, 0,0,0,0,0,0);
-
+    
+    g.setFont("/Users/wkennedy/Library/Fonts/FSEX300.ttf", 16);
 	int last = SDL_GetTicks();
 	while(true){
 		i.nextFrame();
@@ -51,7 +53,7 @@ void Game::run(){
 
 void Game::draw(Graphics &graphics){
 	graphics.clear();
-
+    _window.draw(graphics);
 	graphics.flip();
 }
 

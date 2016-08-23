@@ -7,7 +7,8 @@
 
 #include "TerminalWindow.h"
 #include <string>
-
+TerminalWindow::TerminalWindow(){}
+TerminalWindow::~TerminalWindow(){}
 void TerminalWindow::print(std::string &s){
 	text += s;
 }
@@ -18,5 +19,6 @@ void TerminalWindow::update(){
 	}
 }
 void TerminalWindow::draw(Graphics &g){
-
+    g.setColor(0, 255, 0);
+    g.drawText("Terminal", _x, _y);
 }

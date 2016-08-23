@@ -7,6 +7,7 @@
 
 
 #include "Graphics.h"
+#include <iostream>
 #include <SDL2/SDL.h>
 #ifdef __MACH__
 #include <SDL2_image/SDL_image.h>
@@ -28,7 +29,29 @@ SDL_Surface* Graphics::loadImage(const std::string &filePath){
 	}
 	return _sprites[filePath];
 }
-
+void Graphics::setFont(const std::string &font, int size){
+    if(_fonts.count(font+std::to_string(size))==0){
+        TTF_Font* f = TTF_OpenFont(font.c_str(), size);
+        if(!f){
+            std::cout << TTF_GetError() << std::endl;
+        }
+        _fonts[font+std::to_string(size)] = f;
+    }
+    currentFont = font+std::to_string(size);
+    fontSize = size;
+}
+void Graphics::drawText(const std::string &text, int x, int y){
+    if(currentFont=="")return;
+    if(_fonts[currentFont]==NULL)return;
+    SDL_Surface* s = TTF_RenderText_Solid(_fonts[currentFont], text.c_str(), _color);
+    SDL_Rect r1{0,0,s->w, s->h};
+    SDL_Rect r2{x,y,s->w, s->h};
+    if(s==nullptr)return;
+    blitSurface(SDL_CreateTextureFromSurface(_renderer, s), &r1, &r2);
+}
+void Graphics::setColor(Uint8 r, Uint8 g, Uint8 b){
+    _color = {r,g,b,255};
+}
 void Graphics::blitSurface(SDL_Texture* img, SDL_Rect* src, SDL_Rect* dest){
 	SDL_RenderCopy(_renderer, img, src, dest);
 }

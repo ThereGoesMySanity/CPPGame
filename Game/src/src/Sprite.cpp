@@ -8,13 +8,13 @@
 #include "Sprite.h"
 #include "Graphics.h"
 
-Sprite::Sprite() : pos(0.0f,0.0f){
+Sprite::Sprite() : _x(0), _y(0){
 	_scale = 1;
 	_currentSprite = 0;
 }
 
 Sprite::Sprite(Graphics &graphics, const std::vector<std::string> &file, int xSource, int ySource,
-		int w, int h, float x, float y) : pos(x,y){
+		int w, int h, float x, float y) : _x(x), _y(y){
 	_sourceRect.x = xSource;
 	_sourceRect.y = ySource;
 	_sourceRect.w=w;
@@ -27,7 +27,7 @@ Sprite::Sprite(Graphics &graphics, const std::vector<std::string> &file, int xSo
 }
 Sprite::~Sprite(){}
 void Sprite::draw(Graphics &graphics, int x, int y) {
-	SDL_Rect destinationRectangle = { x, y, _sourceRect.w*_scale, _sourceRect.h*_scale };
+	SDL_Rect destinationRectangle = { x, y, static_cast<int>(_sourceRect.w*_scale), static_cast<int>(_sourceRect.h*_scale) };
 	graphics.blitSurface(_sprite[_currentSprite], &_sourceRect, &destinationRectangle);
 }
 void Sprite::update(){

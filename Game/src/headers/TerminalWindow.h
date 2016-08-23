@@ -9,7 +9,6 @@
 #define TERMINALWINDOW_H
 #include <string>
 #include "Graphics.h"
-#include "Vec2.h"
 class TerminalWindow{
 public:
 	TerminalWindow();
@@ -19,7 +18,7 @@ public:
 	void update();
 	void draw(Graphics &g);
 private:
-	Vec2 pos;
+	int _x,_y;
 	int _w, _h;
 	std::string delayedText;
 	std::string text;
