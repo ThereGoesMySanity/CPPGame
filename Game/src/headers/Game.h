@@ -9,7 +9,7 @@
 #define GAME_H
 
 #include "Sprite.h"
-#include "TerminalWindow.h"
+#include "Window.h"
 #include <map>
 class Graphics;
 
@@ -21,12 +21,13 @@ public:
     void focusWindow(int pos);
     int getWindowAtLocation(int x, int y);
     void addWindow(Window* w);
+    std::vector<Window*> _windows;
 private:
 	void run();
 	void draw(Graphics &graphics);
 	void update(float delta);
 
-	std::vector<Window*> _windows;
+
 	Sprite _player;
 };
 

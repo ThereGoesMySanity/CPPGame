@@ -8,10 +8,13 @@
 #include "TerminalWindow.h"
 #include <iostream>
 #include <string>
-TerminalWindow::TerminalWindow(int x, int y, int w, int h) : Window("Terminal",x, y, w, h){}
+TerminalWindow::TerminalWindow(Game *g, int x, int y, int w, int h)
+	: Window(g, "Terminal",x, y, w, h), delay(1), remaining(0){}
+TerminalWindow::TerminalWindow(Game *g, const std::string &name, int x, int y, int w, int h)
+	: Window(g, name,x, y, w, h), delay(1), remaining(0){}
 TerminalWindow::~TerminalWindow(){}
 void TerminalWindow::println(const std::string &s){
-	text.push_back(s);
+	print(s+"\n");
 }
 void TerminalWindow::print(const std::string &s){
 	for(unsigned int i = 0; i < s.length(); i++){

@@ -7,17 +7,31 @@
 #include <SDL2/SDL.h>
 #include "Game.h"
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
 #include <algorithm>
 #include "Graphics.h"
 #include "Input.h"
+#include "Globals.h"
+#include "Dock.h"
+#include "TerminalWindow.h"
+
+#if defined __MACH__
+#define FONT "/Library/Fonts/FSEX300.ttf"
+#elif defined _WIN32
+
+#else
+#define FONT "/git/CPPGame/Game/FSEX300.ttf"
+#endif
+
+using namespace globals;
 
 Game::Game() {
-	std::cout << "Initializing..." <<std::endl;
 
 	SDL_Init(SDL_INIT_EVERYTHING);
     IMG_Init(IMG_INIT_PNG);
     TTF_Init();
-    std::cout << "Initialized SDL" <<std::endl;
 	run();
 }
 Game::~Game(){
@@ -25,12 +39,12 @@ Game::~Game(){
 }
 void Game::run(){
 	Graphics g;
-	std::cout << "Initialized graphics and input" <<std::endl;
 	Input i(this);
 	SDL_Event event;
-    _windows.insert(_windows.begin(), new TerminalWindow(0,0,256,300));
-    g.setFont("/Users/wkennedy/Library/Fonts/FSEX300.ttf", 16);
-    std::cout << "Loaded font" <<std::endl;
+    addWindow(new TerminalWindow(this, 0,0,256,300));
+    addWindow(new TerminalWindow(this, "The other terminal with a long name so that I can test and differentiate between the two",100,100,256,300));
+    addWindow(new Dock(this, 0, HEIGHT-20, WIDTH, 20));
+    g.setFont(getenv("HOME")+std::string(FONT), 16);
 	int last = SDL_GetTicks();
 	while(true){
 		i.nextFrame();
@@ -72,7 +86,7 @@ void Game::addWindow(Window* w){
 Window* Game::getWindow(int i){return _windows[i];}
 void Game::focusWindow(int pos){
     auto it = _windows.begin() + pos;
-    std::rotate(_windows.begin(),_windows.begin()+1, it);
+    std::rotate(_windows.begin(),it, it+1);
 }
 int Game::getWindowAtLocation(int x, int y){
     for(int i = 0; i < _windows.size(); i++){
@@ -81,7 +95,7 @@ int Game::getWindowAtLocation(int x, int y){
             return i;
         }
     }
-    return NULL;
+    return 0;
 }
 void Game::draw(Graphics &graphics){
 	graphics.setColor(0,0,0);

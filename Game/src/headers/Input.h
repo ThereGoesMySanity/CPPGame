@@ -11,6 +11,7 @@
 #include <map>
 #include <vector>
 #include <SDL2/SDL.h>
+class Game;
 class Input {
 public:
 	Input(Game *g);

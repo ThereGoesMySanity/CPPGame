@@ -15,11 +15,11 @@
 
 class Dock: public Window {
 public:
-    Dock(Game g);
+    Dock(Game *g, int x, int y, int w, int h);
     ~Dock();
-    void move(int x, int y) {}
+    void move(int x, int y) override {}
     
-    void draw(Graphics &g);
+    void draw(Graphics &g) override;
     void onMouse(bool b, int x, int y);
 };
 

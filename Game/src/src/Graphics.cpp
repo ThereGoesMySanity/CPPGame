@@ -15,8 +15,9 @@
 #include <SDL2/SDL_image.h>
 #endif
 Graphics::Graphics(){
-	SDL_CreateWindowAndRenderer(800,600, 0, &this->_window, &this->_renderer);
+	SDL_CreateWindowAndRenderer(globals::WIDTH, globals::HEIGHT, 0, &this->_window, &this->_renderer);
 	SDL_SetWindowTitle(this->_window, "Game thing");
+	fontSize = 0;
 }
 
 Graphics::~Graphics(){

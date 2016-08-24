@@ -9,6 +9,7 @@
 #endif
 #include <string>
 #include <map>
+#include "Globals.h"
 
 struct SDL_Window;
 struct SDL_Renderer;
@@ -26,8 +27,8 @@ public:
 	void flip();
 	void clear();
 	void drawLine(int x1, int y1, int x2, int y2);
-	void drawRect(int x1, int y1, int x2, int y2);
-	void fillRect(int x1, int y1, int x2, int y2);
+	void drawRect(int x1, int y1, int w, int h);
+	void fillRect(int x1, int y1, int w, int h);
 	SDL_Renderer* getRenderer() const;
 private:
 	SDL_Window* _window;

@@ -13,7 +13,8 @@
 #include "Graphics.h"
 class TerminalWindow: public Window {
 public:
-	TerminalWindow(int x, int y, int w, int h);
+	TerminalWindow(Game *g, int x, int y, int w, int h);
+	TerminalWindow(Game *g, const std::string &name, int x, int y, int w, int h);
 	~TerminalWindow();
 	void println(const std::string &s);
 	void print(const std::string &s);
