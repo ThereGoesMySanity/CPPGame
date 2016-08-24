@@ -8,7 +8,9 @@
 #include "Input.h"
 #include <iostream>
 
-
+Input::Input(Game *g){
+	_g = g;
+}
 void Input::nextFrame(){
 	_pressedKeys.clear();
 	_releasedKeys.clear();
@@ -22,6 +24,15 @@ void Input::onKeyDown(const SDL_Event &event){
 void Input::onKeyUp(const SDL_Event &event){
 	_heldKeys[event.key.keysym.scancode] = false;
 	_releasedKeys[event.key.keysym.scancode] = true;
+}
+void Input::onTextInput(const SDL_Event &event){
+
+}
+void Input::onMouse(bool b){
+
+}
+bool Input::getMouse(){
+	return _mouseDown;
 }
 
 void Input::onMouseMove(const SDL_Event &event){

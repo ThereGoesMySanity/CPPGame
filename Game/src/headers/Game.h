@@ -10,7 +10,7 @@
 
 #include "Sprite.h"
 #include "TerminalWindow.h"
-
+#include <map>
 class Graphics;
 
 class Game{
@@ -22,8 +22,8 @@ private:
 	void draw(Graphics &graphics);
 	void update(float delta);
 
+	std::vector<Window*> _windows;
 	Sprite _player;
-    TerminalWindow _window;
 };
 
 

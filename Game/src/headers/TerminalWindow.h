@@ -8,20 +8,23 @@
 #ifndef TERMINALWINDOW_H
 #define TERMINALWINDOW_H
 #include <string>
+#include <vector>
+#include "Window.h"
 #include "Graphics.h"
-class TerminalWindow{
+class TerminalWindow: public Window {
 public:
-	TerminalWindow();
+	TerminalWindow(int x, int y, int w, int h);
 	~TerminalWindow();
-	void print(std::string &s);
-	void delayedPrint(std::string &s, int delay);
-	void update();
-	void draw(Graphics &g);
+	void println(const std::string &s);
+	void print(const std::string &s);
+	void delayedPrint(const std::string &s, int delay);
+	void drawExtra(Graphics &g);
+	void update(float delta);
 private:
-	int _x,_y;
-	int _w, _h;
 	std::string delayedText;
-	std::string text;
+	std::vector<std::string> text;
+	int delay;
+	int remaining;
 };
 
 

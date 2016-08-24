@@ -46,11 +46,23 @@ void Graphics::drawText(const std::string &text, int x, int y){
     SDL_Surface* s = TTF_RenderText_Solid(_fonts[currentFont], text.c_str(), _color);
     SDL_Rect r1{0,0,s->w, s->h};
     SDL_Rect r2{x,y,s->w, s->h};
-    if(s==nullptr)return;
     blitSurface(SDL_CreateTextureFromSurface(_renderer, s), &r1, &r2);
 }
 void Graphics::setColor(Uint8 r, Uint8 g, Uint8 b){
     _color = {r,g,b,255};
+}
+void Graphics::drawLine(int x1, int y1, int x2, int y2){
+	SDL_RenderDrawLine(_renderer, x1, y1, x2, y2);
+}
+void Graphics::drawRect(int x, int y, int w, int h){
+	SDL_SetRenderDrawColor(_renderer, _color.r, _color.g, _color.b, _color.a);
+	SDL_Rect r = {x,y,w,h};
+	SDL_RenderDrawRect(_renderer, &r);
+}
+void Graphics::fillRect(int x, int y, int w, int h){
+	SDL_SetRenderDrawColor(_renderer, _color.r, _color.g, _color.b, _color.a);
+	SDL_Rect r = {x,y,w,h};
+	SDL_RenderFillRect(_renderer, &r);
 }
 void Graphics::blitSurface(SDL_Texture* img, SDL_Rect* src, SDL_Rect* dest){
 	SDL_RenderCopy(_renderer, img, src, dest);

@@ -25,7 +25,9 @@ public:
     void setColor(Uint8 r, Uint8 g, Uint8 b);
 	void flip();
 	void clear();
-	void drawLine();
+	void drawLine(int x1, int y1, int x2, int y2);
+	void drawRect(int x1, int y1, int x2, int y2);
+	void fillRect(int x1, int y1, int x2, int y2);
 	SDL_Renderer* getRenderer() const;
 private:
 	SDL_Window* _window;
