@@ -50,17 +50,17 @@ void Graphics::drawText(const std::string &text, int x, int y){
 }
 void Graphics::setColor(Uint8 r, Uint8 g, Uint8 b){
     _color = {r,g,b,255};
+    SDL_SetRenderDrawColor(_renderer, _color.r, _color.g, _color.b, _color.a);
 }
 void Graphics::drawLine(int x1, int y1, int x2, int y2){
 	SDL_RenderDrawLine(_renderer, x1, y1, x2, y2);
+    
 }
 void Graphics::drawRect(int x, int y, int w, int h){
-	SDL_SetRenderDrawColor(_renderer, _color.r, _color.g, _color.b, _color.a);
 	SDL_Rect r = {x,y,w,h};
 	SDL_RenderDrawRect(_renderer, &r);
 }
 void Graphics::fillRect(int x, int y, int w, int h){
-	SDL_SetRenderDrawColor(_renderer, _color.r, _color.g, _color.b, _color.a);
 	SDL_Rect r = {x,y,w,h};
 	SDL_RenderFillRect(_renderer, &r);
 }

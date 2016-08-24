@@ -23,8 +23,8 @@ public:
 private:
 	std::string delayedText;
 	std::vector<std::string> text;
-	int delay;
-	int remaining;
+	float delay;
+	float remaining;
 };
 
 

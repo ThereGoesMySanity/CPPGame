@@ -8,7 +8,7 @@
 #include "Input.h"
 #include <iostream>
 
-Input::Input(Game *g){
+Input::Input(Game *g) : _mouseDown(false){
 	_g = g;
 }
 void Input::nextFrame(){
@@ -29,7 +29,14 @@ void Input::onTextInput(const SDL_Event &event){
 
 }
 void Input::onMouse(bool b){
-
+    if(b){
+        int z = _g->getWindowAtLocation(_mousePos[0], _mousePos[1]);
+        if(z){
+            _g->focusWindow(z);
+        }
+    }
+    Window* w = _g->getWindow(0);
+    if(w)w->onMouse(b, _mousePos[0], _mousePos[1]);
 }
 bool Input::getMouse(){
 	return _mouseDown;
@@ -37,6 +44,9 @@ bool Input::getMouse(){
 
 void Input::onMouseMove(const SDL_Event &event){
 	_mousePos = {event.motion.x,event.motion.y};
+    Window* w = _g->getWindow(0);
+    if(w)w->onMouseMotion(event.motion);
+    
 }
 
 std::vector<int> Input::getMousePos(){

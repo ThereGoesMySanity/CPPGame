@@ -30,15 +30,15 @@ void TerminalWindow::delayedPrint(const std::string &s, int delay){
 	delayedText += s;
 }
 void TerminalWindow::update(float delta){
-	if(remaining<1){
+	if(remaining<=0){
 		if(delayedText.size()>0){
 			std::string s = delayedText.substr(0,1);
 			print(s);
 			remaining=delay;
 		}
-	}else{
-		remaining--;
-	}
+    }else{
+        remaining-=delta;
+    }
 }
 void TerminalWindow::drawExtra(Graphics &g){
 	int t = std::min(static_cast<int>(text.size()), _w/16);

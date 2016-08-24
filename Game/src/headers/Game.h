@@ -17,6 +17,10 @@ class Game{
 public:
 	Game();
 	~Game();
+    Window* getWindow(int i);
+    void focusWindow(int pos);
+    int getWindowAtLocation(int x, int y);
+    void addWindow(Window* w);
 private:
 	void run();
 	void draw(Graphics &graphics);
