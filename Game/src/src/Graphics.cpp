@@ -16,12 +16,12 @@
 #endif
 Graphics::Graphics(){
 	SDL_CreateWindowAndRenderer(globals::WIDTH, globals::HEIGHT, 0, &this->_window, &this->_renderer);
-	SDL_SetWindowTitle(this->_window, "Game thing");
+	SDL_SetWindowTitle(_window, "Game thing");
 	fontSize = 0;
 }
 
 Graphics::~Graphics(){
-	SDL_DestroyWindow(this->_window);
+	SDL_DestroyWindow(_window);
 }
 
 SDL_Surface* Graphics::loadImage(const std::string &filePath){
@@ -47,10 +47,17 @@ void Graphics::drawText(const std::string &text, int x, int y){
     SDL_Surface* s = TTF_RenderText_Solid(_fonts[currentFont], text.c_str(), _color);
     SDL_Rect r1{0,0,s->w, s->h};
     SDL_Rect r2{x,y,s->w, s->h};
-    blitSurface(SDL_CreateTextureFromSurface(_renderer, s), &r1, &r2);
+    SDL_Texture *t = SDL_CreateTextureFromSurface(_renderer, s);
+    blitSurface(t, &r1, &r2);
+    SDL_DestroyTexture(t);
+    SDL_FreeSurface(s);
 }
 void Graphics::setColor(Uint8 r, Uint8 g, Uint8 b){
     _color = {r,g,b,255};
+    SDL_SetRenderDrawColor(_renderer, _color.r, _color.g, _color.b, _color.a);
+}
+void Graphics::setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a){
+    _color = {r,g,b,a};
     SDL_SetRenderDrawColor(_renderer, _color.r, _color.g, _color.b, _color.a);
 }
 void Graphics::drawLine(int x1, int y1, int x2, int y2){

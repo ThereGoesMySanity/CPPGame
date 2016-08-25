@@ -16,7 +16,7 @@ void Window::draw(Graphics &g){
 		g.setColor(0, 255, 0);
 		g.drawRect(_x, _y, _w, _h);
 		g.drawLine(_x, _y+16, _x+_w-1, _y+16);
-		g.drawText(_title.substr(0,globals::WIDTH/8), _x+2, _y);
+		g.drawText(_title.substr(0,(_w-16)/8), _x+2, _y);
 		g.drawLine(_x+_w-12, _y+8, _x+_w-6, _y+8);
 	}
 }
@@ -30,7 +30,14 @@ void Window::onMouseMotion(SDL_MouseMotionEvent m){
 void Window::minimize(bool b){
 	_minimized = b;
 }
-void Window::move(int x, int y){_x+=x;_y+=y;}
+void Window::move(int x, int y){
+    _x+=x;
+    _y+=y;
+    if(_x<0)_x=0;
+    if(_y<0)_y=0;
+    if(_x+_w>globals::WIDTH)_x = globals::WIDTH-_w;
+    if(_y+_h>globals::HEIGHT)_y = globals::HEIGHT-_h;
+}
 void Window::update(float delta){}
 void Window::drawExtra(Graphics &g){}
 void Window::onInput(const std::string &input){}

@@ -24,6 +24,7 @@ public:
     void drawText(const std::string &text, int x, int y);
     void setFont(const std::string &font, int size);
     void setColor(Uint8 r, Uint8 g, Uint8 b);
+    void setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 	void flip();
 	void clear();
 	void drawLine(int x1, int y1, int x2, int y2);

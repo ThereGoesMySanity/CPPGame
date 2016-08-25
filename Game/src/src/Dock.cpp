@@ -12,7 +12,7 @@
 Dock::Dock(Game *g, int x, int y, int w, int h) : Window(g, "Dock", x , y, w, h){}
 Dock::~Dock(){};
 void Dock::draw(Graphics &g){
-	g.setColor(0,200,0);
+	g.setColor(0,255,0,200);
 	g.fillRect(_x, _y, _w, _h);
 	int wid = std::min(static_cast<int>(globals::WIDTH/(_g->_windows.size()-1)), 84);
 	int i = 0;
