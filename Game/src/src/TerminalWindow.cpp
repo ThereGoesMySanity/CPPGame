@@ -16,6 +16,20 @@ TerminalWindow::~TerminalWindow(){}
 void TerminalWindow::println(const std::string &s){
 	print(s+"\n");
 }
+void TerminalWindow::onInput(const std::string &input){
+
+	print(input);
+}
+void TerminalWindow::onSpecialKey(SDL_Scancode s){
+	switch(s){
+	case SDL_SCANCODE_BACKSPACE:
+		if(text[text.size()-1].size()>0)
+			text[text.size()-1]=text[text.size()-1].substr(0,text[text.size()-1].size()-1);
+		break;
+	default:
+		break;
+	}
+}
 void TerminalWindow::print(const std::string &s){
 	for(unsigned int i = 0; i < s.length(); i++){
 		char c = s[i];
@@ -44,8 +58,16 @@ void TerminalWindow::update(float delta){
     }
 }
 void TerminalWindow::drawExtra(Graphics &g){
-	int t = std::min(static_cast<int>(text.size()), _w/16);
+	int t = std::min(static_cast<int>(text.size()), _h/16-1);
 	for(int i = 0; i < t; i++){
+
 		g.drawText(text[i+text.size()-t], _x, _y+16+i*16);
 	}
+}
+void TerminalWindow::onFocus(){
+	SDL_StartTextInput();
+}
+
+void TerminalWindow::onUnfocus(){
+	SDL_StopTextInput();
 }

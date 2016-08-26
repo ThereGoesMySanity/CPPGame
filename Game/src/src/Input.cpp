@@ -19,6 +19,13 @@ void Input::nextFrame(){
 void Input::onKeyDown(const SDL_Event &event){
 	_heldKeys[event.key.keysym.scancode] = true;
 	_pressedKeys[event.key.keysym.scancode] = true;
+	switch(event.key.keysym.scancode){
+	case SDL_SCANCODE_BACKSPACE:
+		_g->getWindow(0)->onSpecialKey(event.key.keysym.scancode);
+		break;
+	default:
+		break;
+	}
 }
 
 void Input::onKeyUp(const SDL_Event &event){
@@ -26,7 +33,7 @@ void Input::onKeyUp(const SDL_Event &event){
 	_releasedKeys[event.key.keysym.scancode] = true;
 }
 void Input::onTextInput(const SDL_Event &event){
-
+	_g->getWindow(0)->onInput(event.text.text);
 }
 void Input::onMouse(bool b){
     if(b){

@@ -21,6 +21,10 @@ public:
 	void delayedPrint(const std::string &s, int delay);
 	void drawExtra(Graphics &g);
 	void update(float delta);
+	void onInput(const std::string &in) override;
+	void onSpecialKey(SDL_Scancode s) override;
+    void onFocus() override;
+    void onUnfocus() override;
 private:
 	std::string delayedText;
 	std::vector<std::string> text;

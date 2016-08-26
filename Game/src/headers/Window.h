@@ -12,6 +12,9 @@ public:
     virtual void drawExtra(Graphics &g);
     virtual void update(float delta);
     virtual void onInput(const std::string &input);
+    virtual void onSpecialKey(SDL_Scancode key);
+    virtual void onFocus();
+    virtual void onUnfocus();
     void minimize(bool b);
     virtual void onMouse(bool b, int x, int y);
     void onMouseMotion(SDL_MouseMotionEvent m);

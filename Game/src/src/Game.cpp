@@ -85,8 +85,10 @@ void Game::addWindow(Window* w){
 }
 Window* Game::getWindow(int i){return _windows[i];}
 void Game::focusWindow(int pos){
+	_windows[0]->onUnfocus();
     auto it = _windows.begin() + pos;
     std::rotate(_windows.begin(),it, it+1);
+    _windows[0]->onFocus();
 }
 int Game::getWindowAtLocation(int x, int y){
     for(int i = 0; i < _windows.size(); i++){
