@@ -21,6 +21,7 @@ void Input::onKeyDown(const SDL_Event &event){
 	_pressedKeys[event.key.keysym.scancode] = true;
 	switch(event.key.keysym.scancode){
 	case SDL_SCANCODE_BACKSPACE:
+	case SDL_SCANCODE_RETURN:
 		_g->getWindow(0)->onSpecialKey(event.key.keysym.scancode);
 		break;
 	default:

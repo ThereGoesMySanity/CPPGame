@@ -26,9 +26,7 @@ private:
 	void run();
 	void draw(Graphics &graphics);
 	void update(float delta);
-
-
-	Sprite _player;
+	Window* _dock;
 };
 
 

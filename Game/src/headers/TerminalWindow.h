@@ -28,6 +28,8 @@ public:
 private:
 	std::string delayedText;
 	std::vector<std::string> text;
+	std::string input;
+	std::string prelude = "me@my-pc:~$ ";
 	float delay;
 	float remaining;
 };

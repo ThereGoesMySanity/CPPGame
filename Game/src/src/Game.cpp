@@ -43,7 +43,7 @@ void Game::run(){
 	SDL_Event event;
     addWindow(new TerminalWindow(this, 0,0,256,300));
     addWindow(new TerminalWindow(this, "The other terminal with a longname so that I can test and differentiate between the two",100,100,500,300));
-    addWindow(new Dock(this, 0, HEIGHT-20, WIDTH, 20));
+    _dock = new Dock(this, 0, HEIGHT-20, WIDTH, 20);
     g.setFont(getenv("HOME")+std::string(FONT), 16);
 	int last = SDL_GetTicks();
 	while(true){
@@ -105,6 +105,7 @@ void Game::draw(Graphics &graphics){
 	for(int i = _windows.size()-1; i>=0; i--){
 		_windows[i]->draw(graphics);
 	}
+	_dock->draw(graphics);
 	graphics.flip();
 }
 

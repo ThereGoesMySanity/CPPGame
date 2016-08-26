@@ -20,6 +20,7 @@ void Window::draw(Graphics &g){
 		g.drawText(_title.substr(0,(_w-16)/8), _x+2, _y);
 		g.drawLine(_x+_w-12, _y+8, _x+_w-6, _y+8);
 	}
+	drawExtra(g);
 }
 void Window::onMouse(bool b, int x, int y){
 	if(!_minimized){

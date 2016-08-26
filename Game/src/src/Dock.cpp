@@ -27,14 +27,11 @@ void Dock::draw(Graphics &g){
 }
 void Dock::onMouse(bool b, int x, int y){
 	int wid = std::min(static_cast<int>(globals::WIDTH/(_g->_windows.size()-1)), 84);
-	int j = 0;
 	for(int i = 0; i < _g->_windows.size(); i++){
-		if(_g->_windows[i]!=this){
-			if(x>=_x+2+wid*j&&y>=_y+2&&x<_x+wid*(j+1)&&y<_y+18){
-				_g->focusWindow(i);
-				_g->_windows[i]->minimize(false);
-			}
-			j++;
+		if(x>=_x+2+wid*i&&y>=_y+2&&x<_x+wid*(i+1)&&y<_y+18){
+			_g->focusWindow(i);
+			_g->_windows[i]->minimize(false);
 		}
 	}
 }
+

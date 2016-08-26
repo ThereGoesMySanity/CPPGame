@@ -43,6 +43,7 @@ void Graphics::setFont(const std::string &font, int size){
 }
 void Graphics::drawText(const std::string &text, int x, int y){
     if(currentFont=="")return;
+    if(text=="")return;
     if(_fonts[currentFont]==NULL)return;
     SDL_Surface* s = TTF_RenderText_Solid(_fonts[currentFont], text.c_str(), _color);
     SDL_Rect r1{0,0,s->w, s->h};
