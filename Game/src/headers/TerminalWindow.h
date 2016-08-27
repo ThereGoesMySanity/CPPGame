@@ -22,6 +22,9 @@ public:
 	void drawExtra(Graphics &g);
 	void update(float delta);
 	void onInput(const std::string &in) override;
+	void executeCommand(const std::string &s){
+
+	}
 	void onSpecialKey(SDL_Scancode s) override;
     void onFocus() override;
     void onUnfocus() override;
@@ -29,7 +32,8 @@ private:
 	std::string delayedText;
 	std::vector<std::string> text;
 	std::string input;
-	std::string prelude = "me@my-pc:~$ ";
+	std::string prelude;
+	std::string user;
 	float delay;
 	float remaining;
 };
