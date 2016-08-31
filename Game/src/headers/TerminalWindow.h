@@ -19,8 +19,8 @@ public:
 	void println(const std::string &s);
 	void print(const std::string &s);
 	void delayedPrint(const std::string &s, int delay);
-	void drawExtra(Graphics &g);
-	void update(float delta);
+	void drawExtra(Graphics &g) override;
+	void update(float delta) override;
 	void onInput(const std::string &in) override;
 	void executeCommand(const std::string &s){
 
@@ -32,12 +32,10 @@ private:
 	std::string delayedText;
 	std::vector<std::string> text;
 	std::string input;
-	std::string prelude;
-	std::string user;
+    static std::string prelude;
+	static std::string user;
 	float delay;
 	float remaining;
 };
-
-
 
 #endif /* SRC_HEADERS_TERMINALWINDOW_H_ */

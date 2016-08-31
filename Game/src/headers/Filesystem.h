@@ -7,7 +7,12 @@
 
 #ifndef FILESYSTEM_H
 #define FILESYSTEM_H
+
 #include "File.h"
+#include <string>
+#include <vector>
+#include <map>
+
 class Filesystem{
 public:
 	void addFolder(const std::string &s);
@@ -15,6 +20,7 @@ public:
 	std::string getCwd();
 	std::string cd(const std::string &dir);
 	std::vector<std::string> ls(const std::string &s);
+    static Filesystem* defaultFilesystem();
 private:
 	std::map<std::string, std::vector<std::string>> _folders;
 	std::map<std::string, File*> _files;

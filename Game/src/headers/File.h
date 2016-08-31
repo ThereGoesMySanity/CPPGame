@@ -8,6 +8,9 @@
 #ifndef FILE_H
 #define FILE_H
 
+#include "Filesystem.h"
+#include <string>
+
 class File{
 public:
 	File(Filesystem* f, std::string name);

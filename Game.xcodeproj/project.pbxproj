@@ -13,6 +13,8 @@
 		191B37511D6763A100343BD2 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 191B374D1D6763A100343BD2 /* Input.cpp */; };
 		191B37521D6763A100343BD2 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 191B374E1D6763A100343BD2 /* Main.cpp */; };
 		191B37571D67656700343BD2 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191B37561D67656700343BD2 /* SDL2_image.framework */; };
+		194357541D77699F00DA9482 /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 194357521D77699F00DA9482 /* File.cpp */; };
+		194357551D77699F00DA9482 /* Filesystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 194357531D77699F00DA9482 /* Filesystem.cpp */; };
 		197F0CF71D6E21DB00A269BC /* Dock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 197F0CF51D6E21DB00A269BC /* Dock.cpp */; };
 		19F1F13F1D6CAA330010C639 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F1F13E1D6CAA330010C639 /* SDL2_ttf.framework */; };
 		19F2FF7C1D6DD9D5005104EE /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19F2FF7B1D6DD9D5005104EE /* Window.cpp */; };
@@ -45,6 +47,10 @@
 		191B37561D67656700343BD2 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 		193101C61D6E69120009B2F7 /* Dock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Dock.h; path = src/headers/Dock.h; sourceTree = "<group>"; };
 		193101C71D6E69930009B2F7 /* Globals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Globals.h; path = src/headers/Globals.h; sourceTree = "<group>"; };
+		194357501D77699300DA9482 /* File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = File.h; path = src/headers/File.h; sourceTree = "<group>"; };
+		194357511D77699300DA9482 /* Filesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Filesystem.h; path = src/headers/Filesystem.h; sourceTree = "<group>"; };
+		194357521D77699F00DA9482 /* File.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = File.cpp; path = src/src/File.cpp; sourceTree = "<group>"; };
+		194357531D77699F00DA9482 /* Filesystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Filesystem.cpp; path = src/src/Filesystem.cpp; sourceTree = "<group>"; };
 		197F0CF51D6E21DB00A269BC /* Dock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Dock.cpp; path = src/src/Dock.cpp; sourceTree = "<group>"; };
 		19DC2FC01D673FBE00B27A73 /* Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F1F13E1D6CAA330010C639 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
@@ -94,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				191B374B1D6763A100343BD2 /* Game.cpp */,
+				194357521D77699F00DA9482 /* File.cpp */,
+				194357531D77699F00DA9482 /* Filesystem.cpp */,
 				191B374C1D6763A100343BD2 /* Graphics.cpp */,
 				191B374D1D6763A100343BD2 /* Input.cpp */,
 				191B374E1D6763A100343BD2 /* Main.cpp */,
@@ -116,6 +124,8 @@
 				191B37531D6763AA00343BD2 /* Game.h */,
 				191B37541D6763AA00343BD2 /* Graphics.h */,
 				191B37551D6763AA00343BD2 /* Input.h */,
+				194357501D77699300DA9482 /* File.h */,
+				194357511D77699300DA9482 /* Filesystem.h */,
 			);
 			name = headers;
 			sourceTree = "<group>";
@@ -204,9 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				194357541D77699F00DA9482 /* File.cpp in Sources */,
 				19F2FF7C1D6DD9D5005104EE /* Window.cpp in Sources */,
 				191B37511D6763A100343BD2 /* Input.cpp in Sources */,
 				197F0CF71D6E21DB00A269BC /* Dock.cpp in Sources */,
+				194357551D77699F00DA9482 /* Filesystem.cpp in Sources */,
 				19F7B6611D6B347D00571AF9 /* TerminalWindow.cpp in Sources */,
 				191B37501D6763A100343BD2 /* Graphics.cpp in Sources */,
 				19F7B6601D6B347D00571AF9 /* Sprite.cpp in Sources */,

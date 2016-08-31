@@ -38,5 +38,3 @@ std::vector<std::string> Filesystem::ls(const std::string &s){
 	}
 	return _folders[cwd];
 }
-
-

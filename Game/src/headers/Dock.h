@@ -20,7 +20,7 @@ public:
     void move(int x, int y) override {}
     
     void draw(Graphics &g) override;
-    void onMouse(bool b, int x, int y);
+    void onMouse(bool b, int x, int y) override;
 };
 
 #endif /* Dock_hpp */

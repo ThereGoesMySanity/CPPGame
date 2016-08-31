@@ -9,6 +9,10 @@
 #include <sstream>
 #include <iostream>
 #include <string>
+
+std::string TerminalWindow::prelude = "";
+std::string TerminalWindow::user = "";
+
 TerminalWindow::TerminalWindow(Game *g, int x, int y, int w, int h)
 : TerminalWindow(g, "Terminal",x, y, w, h){}
 TerminalWindow::TerminalWindow(Game *g, const std::string &name, int x, int y, int w, int h)
@@ -34,7 +38,7 @@ void TerminalWindow::onSpecialKey(SDL_Scancode s){
 			text.push_back(input.substr(_w*i/8-prelude.size(), _w/8));
 		}
 		if(user==""){
-			user=input;
+            user=input;
 			prelude = user+"@"+user+"-pc:~$ ";
 		}
 		input = "";
