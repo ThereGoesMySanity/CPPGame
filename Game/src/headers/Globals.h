@@ -9,6 +9,7 @@
 #define GLOBALS_H
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 #include <vector>
 namespace globals {
 const int WIDTH = 800;
@@ -29,6 +30,11 @@ inline std::string merge(std::vector<std::string> s, char delim){
 		s1+=s2+delim;
 	}
 	return s1.substr(0,s1.size()-1);
+}
+inline std::string padInt(int num, int len){
+	std::stringstream s;
+	s << std::setfill('0') << std::setw(len) << num;
+	return s;
 }
 }
 

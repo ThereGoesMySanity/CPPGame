@@ -10,7 +10,7 @@
 
 #include "Filesystem.h"
 #include <string>
-
+class Filesystem;
 class File{
 public:
 	File(Filesystem* f, std::string name);
