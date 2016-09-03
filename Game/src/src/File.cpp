@@ -6,6 +6,6 @@
  */
 #include "File.h"
 
-File::File(Filesystem* f, std::string name){
-    
+File::File(Filesystem* f, const std::string &name){
+
 }

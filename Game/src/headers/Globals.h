@@ -31,10 +31,15 @@ inline std::string merge(std::vector<std::string> s, char delim){
 	}
 	return s1.substr(0,s1.size()-1);
 }
+inline std::string to_string(int num){
+	std::stringstream s;
+	s << num;
+	return s.str();
+}
 inline std::string padInt(int num, int len){
 	std::stringstream s;
 	s << std::setfill('0') << std::setw(len) << num;
-	return s;
+	return s.str();
 }
 }
 

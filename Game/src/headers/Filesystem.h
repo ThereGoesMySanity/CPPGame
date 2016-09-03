@@ -24,7 +24,7 @@ public:
 	std::vector<std::string> ls(const std::string &s);
     Filesystem* createFilesystem(const std::string &name);
 private:
-    const std::string &name;
+    std::string _name;
 	std::map<std::string, std::vector<std::string>> _folders;
 	std::map<std::string, File*> _files;
 	std::string cwd;

@@ -17,14 +17,6 @@
 #include "Dock.h"
 #include "TerminalWindow.h"
 
-#if defined __MACH__
-#define FONT "/Library/Fonts/FSEX300.ttf"
-#elif defined _WIN32
-
-#else
-#define FONT "/git/CPPGame/Game/FSEX300.ttf"
-#endif
-
 using namespace globals;
 
 Game::Game() {
@@ -44,7 +36,8 @@ void Game::run(){
     addWindow(new TerminalWindow(this, 0,0,256,300));
     addWindow(new TerminalWindow(this, "The other terminal with a longname so that I can test and differentiate between the two",100,100,500,300));
     _dock = new Dock(this, 0, HEIGHT-20, WIDTH, 20);
-    g.setFont(getenv("HOME")+std::string(FONT), 16);
+    g.setFont("FSEX300.ttf", 16);
+
 	int last = SDL_GetTicks();
 	while(true){
 		i.nextFrame();
@@ -91,6 +84,9 @@ void Game::focusWindow(int pos){
     _windows[0]->onFocus();
 }
 int Game::getWindowAtLocation(int x, int y){
+    if(x>=_dock->_x&&y>=_dock->_y&&x<_dock->_x+_dock->_w&&y<_dock->_y+_dock->_h){
+        return _windows.size();
+    }
     for(int i = 0; i < _windows.size(); i++){
         Window* w = _windows[i];
         if(x>=w->_x&&y>=w->_y&&x<w->_x+w->_w&&y<w->_y+w->_h){

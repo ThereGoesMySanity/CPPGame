@@ -13,7 +13,7 @@
 class Filesystem;
 class File{
 public:
-	File(Filesystem* f, std::string name);
+	File(Filesystem* f, const std::string &name);
 	void onCat();
 	std::string _name;
 };

@@ -22,11 +22,12 @@ public:
     int getWindowAtLocation(int x, int y);
     void addWindow(Window* w);
     std::vector<Window*> _windows;
+    Window* _dock;
 private:
 	void run();
 	void draw(Graphics &graphics);
 	void update(float delta);
-	Window* _dock;
+
 };
 
 

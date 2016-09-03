@@ -40,6 +40,9 @@ void Input::onMouse(bool b){
     if(b){
         int z = _g->getWindowAtLocation(_mousePos[0], _mousePos[1]);
         if(z){
+            if(z==_g->_windows.size()){
+                _g->_dock->onMouse(true, _mousePos[0], _mousePos[1]);
+            }
             _g->focusWindow(z);
         }
     }
@@ -54,7 +57,7 @@ void Input::onMouseMove(const SDL_Event &event){
 	_mousePos = {event.motion.x,event.motion.y};
     Window* w = _g->getWindow(0);
     if(w)w->onMouseMotion(event.motion);
-    
+
 }
 
 std::vector<int> Input::getMousePos(){

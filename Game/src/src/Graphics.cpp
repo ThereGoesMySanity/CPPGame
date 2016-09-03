@@ -31,14 +31,14 @@ SDL_Surface* Graphics::loadImage(const std::string &filePath){
 	return _sprites[filePath];
 }
 void Graphics::setFont(const std::string &font, int size){
-    if(_fonts.count(font+std::to_string(size))==0){
+    if(_fonts.count(font+globals::to_string(size))==0){
         TTF_Font* f = TTF_OpenFont(font.c_str(), size);
         if(!f){
             std::cout << TTF_GetError() << std::endl;
         }
-        _fonts[font+std::to_string(size)] = f;
+        _fonts[font+globals::to_string(size)] = f;
     }
-    currentFont = font+std::to_string(size);
+    currentFont = font+globals::to_string(size);
     fontSize = size;
 }
 void Graphics::drawText(const std::string &text, int x, int y){
@@ -63,7 +63,7 @@ void Graphics::setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a){
 }
 void Graphics::drawLine(int x1, int y1, int x2, int y2){
 	SDL_RenderDrawLine(_renderer, x1, y1, x2, y2);
-    
+
 }
 void Graphics::drawRect(int x, int y, int w, int h){
 	SDL_Rect r = {x,y,w,h};
