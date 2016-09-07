@@ -6,19 +6,19 @@
  */
 
 #include "TerminalWindow.h"
-#include <sstream>
-#include <iostream>
-#include <string>
 
 std::string TerminalWindow::prelude = "";
 std::string TerminalWindow::user = "";
 
-TerminalWindow::TerminalWindow(Game *g, int x, int y, int w, int h)
-: TerminalWindow(g, "Terminal",x, y, w, h){}
-TerminalWindow::TerminalWindow(Game *g, const std::string &name, int x, int y, int w, int h)
-: Window(g, name,x, y, w, h), delay(1), remaining(0){
-	text.push_back("login as: ");
+TerminalWindow::TerminalWindow(int x, int y, int w, int h):
+    TerminalWindow("Terminal",x, y, w, h){}
+TerminalWindow::TerminalWindow(const std::string &name, int x, int y, int w, int h):
+    TerminalWindow(nullptr, name, true, x, y, w, h){}
+TerminalWindow::TerminalWindow(Filesystem* f, const std::string &name, bool movable, int x, int y, int w, int h):
+    Window(name, x, y, w, h), delay(1), remaining(0), _f(f), _movable(movable){
+    if(user=="")text.push_back("login as: ");
 }
+
 TerminalWindow::~TerminalWindow(){}
 void TerminalWindow::println(const std::string &s){
 	print(s+"\n");
@@ -40,6 +40,8 @@ void TerminalWindow::onSpecialKey(SDL_Scancode s){
 		if(user==""){
             user=input;
 			prelude = user+"@"+user+"-pc:~$ ";
+		}else{
+            executeCommand(input);
 		}
 		input = "";
 		text.push_back(prelude);
@@ -75,9 +77,10 @@ void TerminalWindow::update(float delta){
 void executeCommand(const std::string &s){
 	std::vector<std::string> cmd = globals::splits(s, ' ');
 	if(cmd.size()==0)return;
+	cmd.push_back("");
 	if(cmd[0]=="ls"){
 
-	}
+    }
 }
 void TerminalWindow::drawExtra(Graphics &g){
 	if(text.size()==0)return;
@@ -96,4 +99,7 @@ void TerminalWindow::onFocus(){
 
 void TerminalWindow::onUnfocus(){
 	SDL_StopTextInput();
+}
+void TerminalWindow::onFilesystemChange(Filesystem* f){
+    _f = f;
 }

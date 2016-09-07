@@ -8,11 +8,10 @@
 #ifndef FILESYSTEM_H
 #define FILESYSTEM_H
 
-#include "File.h"
 #include <string>
 #include <vector>
 #include <map>
-class File;
+#include "File.h"
 class Filesystem{
 public:
 	Filesystem(const std::string &name);
@@ -22,7 +21,10 @@ public:
 	std::string getCwd();
 	std::string cd(const std::string &dir);
 	std::vector<std::string> ls(const std::string &s);
-    Filesystem* createFilesystem(const std::string &name);
+	std::string cat(const std::string &file);
+	std::string toRoot(const std::string &path);
+	void run(const std::string &file);
+    static Filesystem* createFilesystem(const std::string &name);
 private:
     std::string _name;
 	std::map<std::string, std::vector<std::string>> _folders;

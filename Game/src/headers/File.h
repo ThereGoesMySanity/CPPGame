@@ -7,15 +7,18 @@
 
 #ifndef FILE_H
 #define FILE_H
-
-#include "Filesystem.h"
 #include <string>
-class Filesystem;
+#include "TerminalWindow.h"
 class File{
 public:
-	File(Filesystem* f, const std::string &name);
-	void onCat();
+	File(const std::string &name);
+	File(const std::string &name, const std::string &cat);
+	std::string cat();
+	virtual void run(TerminalWindow* t);
 	std::string _name;
+private:
+	Filesystem* _f;
+	std::string _cat;
 };
 
 

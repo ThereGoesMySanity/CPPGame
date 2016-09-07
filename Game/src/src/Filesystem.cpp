@@ -19,22 +19,31 @@ void Filesystem::addFile(File *f){
 	_folders[cwd].push_back(f->_name);
 }
 std::string Filesystem::getCwd(){
+    if(cwd=="/home/"+_name)return "~";
 	return cwd;
 }
-std::string Filesystem::cd(const std::string &dir){
-	if(dir=="~")cd("/home/"+_name);
-	if(dir=="..")cd(cwd.substr(0, cwd.find_last_of("/")));
-	if(dir.substr(0,1)=="/"){
-		if(_folders.count(dir)>0){
-			cwd=dir;
-			return "";
-		}else if(_files.count(dir)>0){
-			return "bash: cd: "+dir+": Not a directory";
-		}
-		return "bash: cd: "+dir+": No such file or directory";
-	}
-	return cd(cwd+"/"+dir);
+std::string Filesystem::toRoot(const std::string &path){
+    if(path.substr(0,1)=="/")return path;
+    if(path.substr(0,3)=="../")return toRoot(path.substr(3));
+    if(path.substr(0,2)=="./")return toRoot(cwd+path.substr(1));
+    return cwd+"/"+path;
 }
+std::string Filesystem::cat(const std::string &file){
+}
+void Filesystem::run(const std::string &file){
+}
+std::string Filesystem::cd(const std::string &s){
+	if(s=="~")cd("/home/"+_name);
+	std::string dir = toRoot(s);
+    if(_folders.count(dir)>0){
+        cwd=dir;
+        return "";
+    }else if(_files.count(dir)>0){
+        return "bash: cd: "+dir+": Not a directory";
+    }
+    return "bash: cd: "+dir+": No such file or directory";
+}
+
 Filesystem* Filesystem::createFilesystem(const std::string &name){
 	Filesystem* f = new Filesystem(name);
 	f->addFolder("home");
@@ -54,7 +63,7 @@ Filesystem* Filesystem::createFilesystem(const std::string &name){
 				std::vector<std::string>({"jan ", "march", "apr ", "jul", "sep-nov ", "December"})){
 			f->addFolder(i+"2009");
 			for(int i = 0; i < std::rand()%10+10; i++){
-				f->addFile(new File(this, "DSC"+globals::padInt(num, 5)+".jpg"));
+				f->addFile(new File(f, "DSC"+globals::padInt(num, 5)+".jpg"));
 				num++;
 			}
 		}
@@ -63,10 +72,7 @@ Filesystem* Filesystem::createFilesystem(const std::string &name){
 }
 std::vector<std::string> Filesystem::ls(const std::string &s){
 	if(s!=""){
-		if(s.substr(0,1)=="/"){
-			return _folders[s];
-		}
-		return _folders[cwd+"/"+s];
+        return _folders[toRoot(s)];
 	}
 	return _folders[cwd];
 }

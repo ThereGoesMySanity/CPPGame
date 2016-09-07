@@ -2,10 +2,11 @@
 #define WINDOW_H
 #include <string>
 #include "Graphics.h"
-class Game;
-class Window {
+#include "GameListener.h"
+class Filesystem;
+class Window: public GameListener {
 public:
-    Window(Game *g, const std::string &title, int x, int y, int w, int h);
+    Window(const std::string &title, int x, int y, int w, int h);
     virtual ~Window();
     virtual void move(int x, int y);
     virtual void draw(Graphics &g);
@@ -15,13 +16,13 @@ public:
     virtual void onSpecialKey(SDL_Scancode key);
     virtual void onFocus();
     virtual void onUnfocus();
+    virtual void onFilesystemChange(Filesystem* f);
     void minimize(bool b);
     virtual void onMouse(bool b, int x, int y);
     void onMouseMotion(SDL_MouseMotionEvent m);
     std::string _title;
     int _x, _y, _w, _h;
 protected:
-    Game *_g;
     bool _minimized;
     bool _moving;
 };

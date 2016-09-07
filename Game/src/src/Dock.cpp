@@ -30,7 +30,7 @@ void Dock::onMouse(bool b, int x, int y){
 	for(int i = 0; i < _g->_windows.size(); i++){
 		if(x>=_x+2+wid*i&&y>=_y+2&&x<_x+wid*(i+1)&&y<_y+18){
 			_g->focusWindow(i);
-			_g->_windows[i]->minimize(false);
+			_g->_windows[0]->minimize(false);
 		}
 	}
 }

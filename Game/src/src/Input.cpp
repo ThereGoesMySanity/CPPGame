@@ -42,6 +42,7 @@ void Input::onMouse(bool b){
         if(z){
             if(z==_g->_windows.size()){
                 _g->_dock->onMouse(true, _mousePos[0], _mousePos[1]);
+                return;
             }
             _g->focusWindow(z);
         }
