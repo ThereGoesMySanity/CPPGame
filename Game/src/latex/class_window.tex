@@ -1,0 +1,95 @@
+\hypertarget{class_window}{}\section{Window Class Reference}
+\label{class_window}\index{Window@{Window}}
+
+
+Inheritance diagram for Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{class_window__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_window__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_window_a13073c18448edb5af37659eb910a6457}{}\label{class_window_a13073c18448edb5af37659eb910a6457} 
+{\bfseries Window} (const std\+::string \&title, int x, int y, int w, int h)
+\item 
+\hypertarget{class_window_a00f3bcd540087f25bf85fbc14260c6a6}{}\label{class_window_a00f3bcd540087f25bf85fbc14260c6a6} 
+virtual void {\bfseries move} (int x, int y)
+\item 
+\hypertarget{class_window_a4691b11ae3bf79e96b5c64e4cc1db91e}{}\label{class_window_a4691b11ae3bf79e96b5c64e4cc1db91e} 
+virtual void {\bfseries draw} (\hyperlink{class_graphics}{Graphics} \&g)
+\item 
+\hypertarget{class_window_a00e804d5f11153887fde65f9298c4723}{}\label{class_window_a00e804d5f11153887fde65f9298c4723} 
+virtual void {\bfseries draw\+Extra} (\hyperlink{class_graphics}{Graphics} \&g)
+\item 
+\hypertarget{class_window_addf18acb7913c944b252a9e1d829d870}{}\label{class_window_addf18acb7913c944b252a9e1d829d870} 
+virtual void {\bfseries update} (float delta)
+\item 
+\hypertarget{class_window_ac3a94fd42d4cb51d70f5b20e5c358b8c}{}\label{class_window_ac3a94fd42d4cb51d70f5b20e5c358b8c} 
+virtual void {\bfseries on\+Input} (const std\+::string \&input)
+\item 
+\hypertarget{class_window_ac8219c38f63a27e107e11c0ce996c8ee}{}\label{class_window_ac8219c38f63a27e107e11c0ce996c8ee} 
+virtual void {\bfseries on\+Special\+Key} (S\+D\+L\+\_\+\+Scancode key)
+\item 
+\hypertarget{class_window_a856e913fd554818e67c8bc0734f3b657}{}\label{class_window_a856e913fd554818e67c8bc0734f3b657} 
+virtual void {\bfseries on\+Focus} ()
+\item 
+\hypertarget{class_window_ab849a2c1b4c39b1940c3850d7b0c4dc4}{}\label{class_window_ab849a2c1b4c39b1940c3850d7b0c4dc4} 
+virtual void {\bfseries on\+Unfocus} ()
+\item 
+\hypertarget{class_window_a1284aaa97faa73b4134f7dbf96855cb9}{}\label{class_window_a1284aaa97faa73b4134f7dbf96855cb9} 
+virtual void {\bfseries on\+Filesystem\+Change} (\hyperlink{class_filesystem}{Filesystem} $\ast$f)
+\item 
+\hypertarget{class_window_a5736b4b3555f5a3dd28b6348f7ef4495}{}\label{class_window_a5736b4b3555f5a3dd28b6348f7ef4495} 
+void {\bfseries minimize} (bool b)
+\item 
+\hypertarget{class_window_af602ba77befac67a28be115077bd2879}{}\label{class_window_af602ba77befac67a28be115077bd2879} 
+virtual void {\bfseries on\+Mouse} (bool b, int x, int y)
+\item 
+\hypertarget{class_window_ac3d60de0a45e3ebca44c65176074ebaa}{}\label{class_window_ac3d60de0a45e3ebca44c65176074ebaa} 
+void {\bfseries on\+Mouse\+Motion} (S\+D\+L\+\_\+\+Mouse\+Motion\+Event m)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_window_a5d4096105823af83ad842d52f297aa38}{}\label{class_window_a5d4096105823af83ad842d52f297aa38} 
+std\+::string {\bfseries \+\_\+title}
+\item 
+\hypertarget{class_window_af907a6d65dbddffb8e58e162e22472e3}{}\label{class_window_af907a6d65dbddffb8e58e162e22472e3} 
+int {\bfseries \+\_\+x}
+\item 
+\hypertarget{class_window_a40112a204e3a41a989ab7d4d55107390}{}\label{class_window_a40112a204e3a41a989ab7d4d55107390} 
+int {\bfseries \+\_\+y}
+\item 
+\hypertarget{class_window_a7b1f17770125610dd478a0e68072d3da}{}\label{class_window_a7b1f17770125610dd478a0e68072d3da} 
+int {\bfseries \+\_\+w}
+\item 
+\hypertarget{class_window_aab287f182e3d0db85341995ad1375b71}{}\label{class_window_aab287f182e3d0db85341995ad1375b71} 
+int {\bfseries \+\_\+h}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_window_a740438df63489d2c93b3c6eb65da8e94}{}\label{class_window_a740438df63489d2c93b3c6eb65da8e94} 
+bool {\bfseries \+\_\+minimized}
+\item 
+\hypertarget{class_window_a7b3113c737ef37d82ff2d18f3fb82f59}{}\label{class_window_a7b3113c737ef37d82ff2d18f3fb82f59} 
+bool {\bfseries \+\_\+moving}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/Window.\+h\item 
+src/Window.\+cpp\end{DoxyCompactItemize}

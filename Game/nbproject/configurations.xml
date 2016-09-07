@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <logicalFolder name="headers" displayName="headers" projectFiles="true">
+        <itemPath>src/headers/Dock.h</itemPath>
+        <itemPath>src/headers/Game.h</itemPath>
+        <itemPath>src/headers/Globals.h</itemPath>
+        <itemPath>src/headers/Graphics.h</itemPath>
+        <itemPath>src/headers/Input.h</itemPath>
+        <itemPath>src/headers/Sprite.h</itemPath>
+        <itemPath>src/headers/TerminalWindow.h</itemPath>
+        <itemPath>src/headers/Window.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="src" displayName="src" projectFiles="true">
+        <itemPath>src/src/Dock.cpp</itemPath>
+        <itemPath>src/src/Game.cpp</itemPath>
+        <itemPath>src/src/Graphics.cpp</itemPath>
+        <itemPath>src/src/Input.cpp</itemPath>
+        <itemPath>src/src/Main.cpp</itemPath>
+        <itemPath>src/src/Sprite.cpp</itemPath>
+        <itemPath>src/src/TerminalWindow.cpp</itemPath>
+        <itemPath>src/src/Window.cpp</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>src</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>D:/Documents/code/CPPGame/Game/src/headers</pElem>
+          </incDir>
+          <commandLine>-std=gnu++11</commandLine>
+        </ccTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>../../../SDL2/SDL2.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../../SDL2/SDL2_image.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../../SDL2/SDL2_ttf.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../../SDL2/libfreetype-6.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../../SDL2/libjpeg-9.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../../SDL2/libpng16-16.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../../SDL2/libtiff-5.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../../SDL2/libwebp-4.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../../SDL2/zlib1.dll</linkerLibFileItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="src/headers/Dock.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Globals.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Graphics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Input.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Sprite.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/TerminalWindow.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Window.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/src/Dock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Graphics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Input.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Sprite.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/TerminalWindow.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Window.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="src/headers/Dock.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Globals.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Graphics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Input.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Sprite.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/TerminalWindow.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/headers/Window.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/src/Dock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Graphics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Input.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Sprite.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/TerminalWindow.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/src/Window.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
