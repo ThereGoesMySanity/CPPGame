@@ -12,4 +12,4 @@ File::~File(){}
 std::string File::cat(){
     return _cat;
 }
-void File::run(TerminalWindow* t){}
+void File::krun(TerminalWindow* t){}
