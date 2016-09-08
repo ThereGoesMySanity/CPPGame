@@ -63,7 +63,7 @@ Filesystem* Filesystem::createFilesystem(const std::string &name){
 				std::vector<std::string>({"jan ", "march", "apr ", "jul", "sep-nov ", "December"})){
 			f->addFolder(i+"2009");
 			for(int i = 0; i < std::rand()%10+10; i++){
-				f->addFile(new File(f, "DSC"+globals::padInt(num, 5)+".jpg"));
+				f->addFile(new File("DSC"+globals::padInt(num, 5)+".jpg"));
 				num++;
 			}
 		}

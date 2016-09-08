@@ -50,4 +50,4 @@ void Window::update(float delta){}
 void Window::drawExtra(Graphics &g){}
 void Window::onInput(const std::string &input){}
 void Window::onSpecialKey(SDL_Scancode key){}
-void onFilesystemChange(Filesystem* f){}
+void Window::onFilesystemChange(Filesystem* f){}

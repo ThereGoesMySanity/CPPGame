@@ -13,6 +13,7 @@ class File{
 public:
 	File(const std::string &name);
 	File(const std::string &name, const std::string &cat);
+	virtual ~File();
 	std::string cat();
 	virtual void run(TerminalWindow* t);
 	std::string _name;

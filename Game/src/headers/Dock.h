@@ -21,6 +21,7 @@ public:
 
     void draw(Graphics &g) override;
     void onMouse(bool b, int x, int y) override;
+    void onFilesystemChange(Filesystem* f) override;
 };
 
 #endif /* Dock_hpp */

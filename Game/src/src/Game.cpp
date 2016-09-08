@@ -102,3 +102,7 @@ void Game::draw(Graphics &graphics){
 void Game::update(float delta){
 
 }
+void Game::addGameListener(GameListener* g){
+    g->setGame(this);
+    _listeners.push_back(g);
+}

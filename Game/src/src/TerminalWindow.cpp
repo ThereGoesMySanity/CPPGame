@@ -74,7 +74,7 @@ void TerminalWindow::update(float delta){
 		remaining-=delta;
 	}
 }
-void executeCommand(const std::string &s){
+void TerminalWindow::executeCommand(const std::string &s){
 	std::vector<std::string> cmd = globals::splits(s, ' ');
 	if(cmd.size()==0)return;
 	cmd.push_back("");

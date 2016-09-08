@@ -9,14 +9,15 @@
 #include "Dock.h"
 #include <iostream>
 
-Dock::Dock(Game *g, int x, int y, int w, int h) : Window(g, "Dock", x , y, w, h){}
+Dock::Dock(int x, int y, int w, int h) : Window("Dock", x , y, w, h){}
 Dock::~Dock(){};
 void Dock::draw(Graphics &g){
+    Game* gm = getGame();
 	g.setColor(0,200,0,200);
 	g.fillRect(_x, _y, _w, _h);
-	int wid = std::min(static_cast<int>(globals::WIDTH/(_g->_windows.size()-1)), 84);
+	int wid = std::min(static_cast<int>(globals::WIDTH/(getWindows().size()-1)), 84);
 	int i = 0;
-	for(Window *w : _g->_windows){
+	for(Window *w : getWindows()){
 		if(w!=this){
 			g.setColor(0,255,0);
 			g.drawRect(_x+2+wid*i, _y+2, wid-2, 16);
@@ -26,12 +27,14 @@ void Dock::draw(Graphics &g){
 	}
 }
 void Dock::onMouse(bool b, int x, int y){
-	int wid = std::min(static_cast<int>(globals::WIDTH/(_g->_windows.size()-1)), 84);
-	for(int i = 0; i < _g->_windows.size(); i++){
+    Game* g = getGame();
+	int wid = std::min(static_cast<int>(globals::WIDTH/(getWindows().size()-1)), 84);
+	for(int i = 0; i < getWindows().size(); i++){
 		if(x>=_x+2+wid*i&&y>=_y+2&&x<_x+wid*(i+1)&&y<_y+18){
-			_g->focusWindow(i);
-			_g->_windows[0]->minimize(false);
+			g->focusWindow(i);
+			g->_windows[0]->minimize(false);
 		}
 	}
 }
+void Dock::onFilesystemChange(Filesystem* f){}
 
