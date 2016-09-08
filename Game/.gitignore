@@ -1,4 +1,13 @@
-/Debug/
+bin/**
+build/**
+Debug/**
+nbproject/**
+obj/**
+Debug/**
+.settings/**
 .cproject
 .project
-.settings/*
+Game.cbp
+.dep.inc
+Game.depend
+Game.layout
