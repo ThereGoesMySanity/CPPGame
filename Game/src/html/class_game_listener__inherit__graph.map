@@ -1,5 +1,0 @@
-<map id="GameListener" name="GameListener">
-<area shape="rect" id="node2" href="$class_window.html" title="Window" alt="" coords="52,80,120,107"/>
-<area shape="rect" id="node3" href="$class_dock.html" title="Dock" alt="" coords="5,155,57,181"/>
-<area shape="rect" id="node4" href="$class_terminal_window.html" title="TerminalWindow" alt="" coords="82,155,199,181"/>
-</map>
