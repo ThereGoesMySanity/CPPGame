@@ -29,6 +29,10 @@ std::string Filesystem::toRoot(const std::string &path){
     return cwd+"/"+path;
 }
 std::string Filesystem::cat(const std::string &file){
+    if(_files.count(toRoot(file))){
+        return _files[toRoot(file)]->cat();
+    }
+    return "";
 }
 void Filesystem::run(const std::string &file){
 }

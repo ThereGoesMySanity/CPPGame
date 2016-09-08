@@ -12,18 +12,16 @@
 Dock::Dock(int x, int y, int w, int h) : Window("Dock", x , y, w, h){}
 Dock::~Dock(){};
 void Dock::draw(Graphics &g){
-    Game* gm = getGame();
 	g.setColor(0,200,0,200);
 	g.fillRect(_x, _y, _w, _h);
-	int wid = std::min(static_cast<int>(globals::WIDTH/(getWindows().size()-1)), 84);
+    std::vector<Window*> w = getWindows();
+	int wid = std::min(static_cast<int>(globals::WIDTH/(w.size()-1)), 84);
 	int i = 0;
-	for(Window *w : getWindows()){
-		if(w!=this){
-			g.setColor(0,255,0);
-			g.drawRect(_x+2+wid*i, _y+2, wid-2, 16);
-			g.drawText(w->_title.substr(0, wid/8), _x+4+wid*i, _y+2);
-			i++;
-		}
+	for(Window *wn : w){
+        g.setColor(0,255,0);
+        g.drawRect(_x+2+wid*i, _y+2, wid-2, 16);
+        g.drawText(wn->_title.substr(0, wid/8), _x+4+wid*i, _y+2);
+        i++;
 	}
 }
 void Dock::onMouse(bool b, int x, int y){

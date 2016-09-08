@@ -9,7 +9,7 @@
 using namespace globals;
 using namespace std;
 
-Game::Game() {
+Game::Game(): _windows(){
 
 	SDL_Init(SDL_INIT_EVERYTHING);
     IMG_Init(IMG_INIT_PNG);
@@ -30,6 +30,7 @@ void Game::run(){
     addGameListener(t);
     addWindow(t);
     _dock = new Dock(0, HEIGHT-20, WIDTH, 20);
+    addGameListener(_dock);
     g.setFont("FSEX300.ttf", 16);
 
 	int last = SDL_GetTicks();
