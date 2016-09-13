@@ -20,7 +20,7 @@ void Dock::draw(Graphics &g){
 	for(Window *wn : w){
         g.setColor(0,255,0);
         g.drawRect(_x+2+wid*i, _y+2, wid-2, 16);
-        g.drawText(wn->_title.substr(0, wid/8), _x+4+wid*i, _y+2);
+        g.drawText(wn->_title.substr(0, wid/8), _x+4+wid*i, _y+2, false);
         i++;
 	}
 }

@@ -56,9 +56,11 @@ bool Input::getMouse(){
 
 void Input::onMouseMove(const SDL_Event &event){
 	_mousePos = {event.motion.x,event.motion.y};
-    Window* w = _g->getWindow(0);
+    Window* w = _g->getWindow(_g->getWindowAtLocation(event.motion.x, event.motion.y));
     if(w)w->onMouseMotion(event.motion);
-
+    if(w!=_g->getWindow(0)){
+        _g->getWindow(0)->onMouseMotion(event.motion);
+    }
 }
 
 std::vector<int> Input::getMousePos(){

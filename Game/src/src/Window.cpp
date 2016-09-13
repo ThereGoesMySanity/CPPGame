@@ -16,7 +16,7 @@ void Window::draw(Graphics &g){
 		g.setColor(0, 255, 0);
 		g.drawRect(_x, _y, _w, _h);
 		g.drawLine(_x, _y+16, _x+_w-1, _y+16);
-		g.drawText(_title.substr(0,(_w-16)/8), _x+2, _y);
+		g.drawText(_title.substr(0,(_w-16)/8), _x+2, _y, false);
 		g.drawLine(_x+_w-12, _y+8, _x+_w-6, _y+8);
 		drawExtra(g);
 	}

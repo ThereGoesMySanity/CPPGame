@@ -4,7 +4,7 @@
  *  Created on: Aug 18, 2016
  *      Author: Will
  */
-
+/*
 #include "Sprite.h"
 #include "Graphics.h"
 
@@ -20,7 +20,7 @@ Sprite::Sprite(Graphics &graphics, const std::vector<std::string> &file, int xSo
 	_sourceRect.w=w;
 	_sourceRect.h=h;
 	for(std::string s : file){
-		_sprite.push_back(SDL_CreateTextureFromSurface(graphics.getRenderer(), graphics.loadImage(s)));
+		_sprite.push_back();
 	}
 	_scale = 1;
 	_currentSprite = 0;
@@ -28,7 +28,7 @@ Sprite::Sprite(Graphics &graphics, const std::vector<std::string> &file, int xSo
 Sprite::~Sprite(){}
 void Sprite::draw(Graphics &graphics, int x, int y) {
 	SDL_Rect destinationRectangle = { x, y, static_cast<int>(_sourceRect.w*_scale), static_cast<int>(_sourceRect.h*_scale) };
-	graphics.blitSurface(_sprite[_currentSprite], &_sourceRect, &destinationRectangle);
+	graphics.blitSurface(_sprite[_currentSprite], , );
 }
 void Sprite::update(){
 
@@ -42,3 +42,4 @@ void Sprite::next(){
 void Sprite::sprite(int i){
 	if(i<_sprite.size())_currentSprite=i;
 }
+*/

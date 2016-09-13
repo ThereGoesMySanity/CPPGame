@@ -1,7 +1,8 @@
 #ifndef SPRITE_H
 #define SPRITE_H
-
+/*
 #include <SDL2/SDL.h>
+#include <GL/gl.h>
 
 #include <string>
 #include <vector>
@@ -20,13 +21,12 @@ public:
 	void sprite(int i);
 
 protected:
-	SDL_Rect _sourceRect;
-	std::vector<SDL_Texture*> _sprite;
+	std::vector<GLuint> _sprite;
 	int _x, _y;
 	std::size_t _currentSprite;
 	float _scale;
 private:
 };
 
-
+*/
 #endif

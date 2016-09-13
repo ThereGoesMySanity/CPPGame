@@ -87,10 +87,10 @@ void TerminalWindow::drawExtra(Graphics &g){
 	int z = std::min((_h-20)/16-(input.size()+text[text.size()-1].size())*8/_w, text.size());
 	int i = 0;
 	for(; i < z-1; i++){
-		g.drawText(text[text.size()-z+i], _x+2, _y+16*i+18);
+		g.drawText(text[text.size()-z+i], _x+2, _y+16*i+18, true);
 	}
 	for(int j = 0; j <= (input.size()+text[text.size()-1].size())*8/_w; j++){
-		g.drawText((text[text.size()-1]+input).substr(_w/8*j, _w/8), _x+2, _y+16*(i+j)+18);
+		g.drawText((text[text.size()-1]+input).substr(_w/8*j, _w/8), _x+2, _y+16*(i+j)+18, true);
 	}
 }
 void TerminalWindow::onFocus(){
